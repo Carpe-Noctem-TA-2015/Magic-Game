@@ -3,33 +3,33 @@
 We are working on Magic Duel App that will allow you to enter the wizzarding world and advance in the realm of magic. You will be practicing spells against real opponents.
 
 ##The Team:
- argidux
- velimira.madjarova
+ * argidux
+ * velimira.madjarova
 
 ##App Pages:
 ###Main Menu
 ####Find Opponent
-Progress bar
-and then Game Page
+* Progress bar
+* and then Game Page
 
 ####Profile - Spellbook
-Name
-Choosen Avatar
-Ranking
-Games played (some stats)
-Spellbook
+* Name
+* Choosen Avatar
+* Ranking
+* Games played (some stats)
+ *Spellbook
 
 ####Ranking
-Top 10
-Your Ranking (marked in a different colour)
+* Top 10
+* Your Ranking (marked in a different colour)
 
 ####Game Rules
 
 ####settings button (open with swipe)
-Sound
-Name
-Avatar
-Exit
+* Sound
+* Name
+* Avatar
+* Exit
 
 ##Game:
 Stage 1: Select one of the forces from tiles and transform your mana to that energy(tap to turn the tile and double tap to select).
