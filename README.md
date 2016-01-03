@@ -25,7 +25,7 @@ We are working on Magic Duel App that will allow you to enter the wizzarding wor
 
 ####Game Rules
 
-####settings button (open with swipe)
+* ettings button (open with swipe)
 * Sound
 * Name
 * Avatar
