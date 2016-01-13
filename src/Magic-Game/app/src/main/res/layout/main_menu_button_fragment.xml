@@ -18,9 +18,24 @@
         android:layout_height="wrap_content"
         android:text="Ranking"/>
 
-    <Button
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Game Rules"/>
+        android:layout_height="wrap_content">
+        <ImageButton
+            android:onClick="onClickGameRules"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/state_list_drawable"
+            android:foregroundGravity="center"
+            android:background="@drawable/state_list_drawable"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game Rules"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
 
 </LinearLayout>
