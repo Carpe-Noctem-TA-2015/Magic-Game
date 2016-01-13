@@ -15,6 +15,22 @@ public class GameCommon extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setGameFragments();
+    }
+
+    private void setGameFragments() {
+        getFragmentManager()
+                .beginTransaction()
+                .add(R.id.top_bar, new GameTopBar())
+                .add(R.id.game_area, new GameArea())
+                .add(R.id.bottom_bar, new GameBottomBar())
+                .commit();
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

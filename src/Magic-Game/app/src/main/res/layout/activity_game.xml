@@ -7,6 +7,16 @@
 
     <FrameLayout
         android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/small_bg"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"/>
+    </FrameLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/game_container"/>
 
