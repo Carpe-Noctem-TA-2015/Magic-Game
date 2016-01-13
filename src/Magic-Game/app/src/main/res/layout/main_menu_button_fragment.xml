@@ -3,9 +3,24 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <Button
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/holo_blue_bright"
-        android:text="Whatever"/>
+        android:layout_height="wrap_content"
+        android:text="Find Opponent"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Profile"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ranking"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Game Rules"/>
+
 </LinearLayout>
