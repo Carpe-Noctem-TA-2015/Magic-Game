@@ -12,9 +12,10 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
+import android.widget.LinearLayout;
 
 
-public class GameView extends SurfaceView implements Runnable {
+public class StaticAnimateGameView extends SurfaceView implements Runnable {
 
     Thread gameThread = null;
     SurfaceHolder ourHolder;
@@ -42,19 +43,10 @@ public class GameView extends SurfaceView implements Runnable {
     private long lastFrameChangeTime = 0;
     private int frameLengthInMilliseconds = 100;
 
-    private Rect frameToDraw = new Rect(
-            0,
-            0,
-            frameWidth,
-            frameHeight);
+    private Rect frameToDraw;
+    private RectF whereToDraw;
 
-
-    RectF whereToDraw = new RectF(
-            startingPoitionOfCut, 0,
-            startingPoitionOfCut + frameWidth,
-            frameHeight);
-
-    public GameView(Context context, int resource, int frameWidth, int frameHeight, int frameCount) {
+    public StaticAnimateGameView(Context context, int resource, int frameWidth, int frameHeight, int frameCount) {
         super(context);
 
         //set drawers
@@ -65,7 +57,9 @@ public class GameView extends SurfaceView implements Runnable {
         this.frameHeight = frameHeight;
         this.frameCount = frameCount;
         this.currentFrame = 0;
-        intDrawingDimentions();
+
+        this.setLayoutParams(new LinearLayout.LayoutParams(frameWidth,frameHeight));
+        initDrawingArea();
 
         //set resource
         animatedImage = BitmapFactory.decodeResource(this.getResources(), resource);
@@ -76,7 +70,19 @@ public class GameView extends SurfaceView implements Runnable {
 
     }
 
-    private void intDrawingDimentions() {
+    private void initDrawingArea() {
+        frameToDraw = new Rect(
+                0,
+                0,
+                frameWidth,
+                frameHeight);
+
+
+        whereToDraw = new RectF(
+                startingPoitionOfCut, 0,
+                startingPoitionOfCut + frameWidth,
+                frameHeight);
+
     }
 
     @Override

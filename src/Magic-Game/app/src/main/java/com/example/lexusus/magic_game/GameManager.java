@@ -5,7 +5,6 @@ package com.example.lexusus.magic_game;
  */
 public class GameManager {
 
-
     private int currentGameStage;
 
     public GameManager() {

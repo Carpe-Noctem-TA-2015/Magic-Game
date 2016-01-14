@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="75dp"
+    android:layout_height="75dp"
+    android:orientation="vertical"
+    android:gravity="center">
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:id="@+id/image"
+        android:src="@mipmap/air"
+        />
+</LinearLayout>

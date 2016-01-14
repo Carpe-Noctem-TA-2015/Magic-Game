@@ -18,12 +18,27 @@ public class GameTopBar extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_game_top_bar, container, false);
+        View view = inflater.inflate(R.layout.fragment_game_top_bar, container, false);
+
+      /*  View tb = view.findViewById(R.id.game_top_bar);
+        StaticAnimateGameView avatar =  new StaticAnimateGameView(getActivity(),R.drawable.bob,200,200,5);
+
+        ((LinearLayout)tb).addView(avatar);*/
+
+        return  view;
+
     }
 
 }
