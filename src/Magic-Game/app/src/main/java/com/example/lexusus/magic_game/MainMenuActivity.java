@@ -19,7 +19,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void onClickFindOpponent(View view){
-        Log.d("my app", "game rules");
+        Log.d("my app", "find opponent");
     }
     public void onClickRanking(View view){
         Log.d("my app", "ranking");
