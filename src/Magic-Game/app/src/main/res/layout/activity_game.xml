@@ -7,12 +7,13 @@
     android:layout_gravity="center"
     tools:context="com.example.lexusus.magic_game.GameActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@android:color/holo_green_dark">
+        android:background="@android:color/holo_green_dark"
+        android:id="@+id/ll_topbar">
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

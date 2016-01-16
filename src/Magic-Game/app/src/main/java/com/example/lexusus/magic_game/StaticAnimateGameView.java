@@ -26,8 +26,8 @@ public class StaticAnimateGameView extends SurfaceView implements Runnable {
     Bitmap animatedImage;
 
     // Animation Cotronl
-    volatile boolean playing;
-    boolean isMoving = false;
+    volatile boolean playing = true;
+    boolean isMoving = true;
 
     float startingPoitionOfCut = 10;
 
@@ -67,7 +67,6 @@ public class StaticAnimateGameView extends SurfaceView implements Runnable {
                 frameWidth * frameCount,
                 frameHeight,
                 false);
-
     }
 
     private void initDrawingArea() {
