@@ -17,6 +17,8 @@ public class GameActivity extends AppCompatActivity {
     private boolean lockGame = false;
     private boolean[] isFlipped;
     private Tiles[] tiles;
+    private int[] power;
+    private int pairsLeft;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +112,22 @@ public class GameActivity extends AppCompatActivity {
                     View view2 = (View) findViewById(secondOpenId);
 
                     view2.setVisibility(View.INVISIBLE);
+
+                    switch (tiles[firstOpenTag]){
+                        case FIRE:
+                            power[0]+=1;
+                            break;
+                        case WATER:
+                            power[1]+=1;
+                            break;
+                        case AIR:
+                            power[2]+=1;
+                            break;
+                        case Earth:
+                            power[3]+=1;
+                            break;
+                    }
+                    pairsLeft --;
                 }
 
                 isFlipped[firstOpenTag] = !isFlipped[firstOpenTag];
@@ -119,6 +137,9 @@ public class GameActivity extends AppCompatActivity {
                 secondOpenId = -1;
                 secondOpenTag = -1;
                 lockGame = false;
+                if(pairsLeft == 0){
+                    ChangeStage();
+                }
             }
         }, 500);
 
@@ -183,6 +204,8 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void InitStageOne() {
+        this.power = new int[4];
+        this.pairsLeft = 8;
         TilePuzzeManager puzzle = new TilePuzzeManager(4);
         this.isFlipped = puzzle.getFlipped();
         this.tiles = puzzle.getTiles();
