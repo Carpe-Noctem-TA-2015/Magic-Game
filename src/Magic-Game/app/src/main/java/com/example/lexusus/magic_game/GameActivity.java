@@ -48,7 +48,6 @@ public class GameActivity extends AppCompatActivity {
     }
 
     //Speech
-
     private void promptSpeechInput() {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
@@ -64,7 +63,6 @@ public class GameActivity extends AppCompatActivity {
                     Toast.LENGTH_SHORT).show();
         }
     }
-
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -162,21 +160,21 @@ public class GameActivity extends AppCompatActivity {
 
                     view2.setVisibility(View.INVISIBLE);
 
-                    switch (tiles[firstOpenTag]){
+                    switch (tiles[firstOpenTag]) {
                         case FIRE:
-                            power[0]+=1;
+                            power[0] += 1;
                             break;
                         case WATER:
-                            power[1]+=1;
+                            power[1] += 1;
                             break;
                         case AIR:
-                            power[2]+=1;
+                            power[2] += 1;
                             break;
                         case Earth:
-                            power[3]+=1;
+                            power[3] += 1;
                             break;
                     }
-                    pairsLeft --;
+                    pairsLeft--;
                 }
 
                 isFlipped[firstOpenTag] = !isFlipped[firstOpenTag];
@@ -186,7 +184,7 @@ public class GameActivity extends AppCompatActivity {
                 secondOpenId = -1;
                 secondOpenTag = -1;
                 lockGame = false;
-                if(pairsLeft == 0){
+                if (pairsLeft == 0) {
                     ChangeStage();
                 }
             }
@@ -249,7 +247,13 @@ public class GameActivity extends AppCompatActivity {
                     .beginTransaction()
                     .replace(R.id.fl_game_area, new StageThree())
                     .commit();
+            InitStageThree();
         }
+    }
+
+    // Register
+
+    private void InitStageThree() {
     }
 
     private void InitStageOne() {
