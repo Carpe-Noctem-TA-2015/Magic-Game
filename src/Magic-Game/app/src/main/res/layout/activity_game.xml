@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:stretchColumns="*"
     tools:context="com.example.lexusus.magic_game.GameActivity">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/small_bg"
-            android:adjustViewBounds="true"
-            android:scaleType="centerCrop"/>
-    </FrameLayout>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/game_container"/>
+    <TableRow
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@android:color/holo_green_dark">
 
-</RelativeLayout>
+        <TextView
+            android:text="Avatar"/>
+        <TextView
+            android:text="PowerIcon"/>
+        <TextView
+            android:text="Defend"/>
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_weight="6"
+        android:background="@android:color/holo_blue_bright">
+        <TextView android:text="Middle" />
+
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:background="@android:color/holo_red_dark">
+        <TextView android:text="Bottom" />
+
+    </TableRow>
+
+
+</TableLayout>

@@ -9,6 +9,6 @@
         android:layout_height="75dp"
         android:adjustViewBounds="true"
         android:id="@+id/image"
-        android:src="@mipmap/air"
+        android:src="@drawable/air"
         />
 </LinearLayout>
