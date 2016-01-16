@@ -18,8 +18,10 @@ public class TilePuzzeManager {
     }
 
     private void initTiles() {
+        Tiles currentTileType = Tiles.FIRE;
+
         for (int i = 0; i < tiles.length; i++) {
-             Tiles currentTileType = Tiles.FIRE;
+
             if(i == 4){
                 currentTileType = Tiles.WATER;
             }

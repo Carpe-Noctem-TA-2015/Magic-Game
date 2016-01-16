@@ -28,6 +28,12 @@ public class TileBackFragment extends Fragment {
             case AIR:
                 layout = R.layout.air;
                 break;
+            case WATER:
+                layout = R.layout.water;
+                break;
+            case Earth:
+                layout = R.layout.earth;
+                break;
             default:
                 layout = R.layout.air;
                 break;
