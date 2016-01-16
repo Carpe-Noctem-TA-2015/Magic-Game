@@ -14,6 +14,7 @@ public class GameActivity extends AppCompatActivity {
     private int firstOpenTag = -1;
     private int secondOpenId = -1;
     private int secondOpenTag = -1;
+    private boolean lockGame = false;
     private boolean[] isFlipped;
     private Tiles[] tiles;
 
@@ -46,6 +47,10 @@ public class GameActivity extends AppCompatActivity {
         //flipCard();
     }
     private void FlipSpecificTitle(String tag, int id){
+
+        if(lockGame){
+            return;
+        }
 
         int tagValue = Integer.parseInt(tag);
         boolean closeAfterOpening = false;
@@ -88,6 +93,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
 
+        this.lockGame = true;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
 
@@ -112,8 +118,10 @@ public class GameActivity extends AppCompatActivity {
                 firstOpenId = -1;
                 secondOpenId = -1;
                 secondOpenTag = -1;
+                lockGame = false;
             }
         }, 500);
+
 
 
 
