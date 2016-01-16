@@ -14,6 +14,7 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     private int[] power;
     private int pairsLeft;
     private GestureLibrary gLibrary;
-
+    private StaticAnimateGameView gameView;
 
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
@@ -44,6 +45,17 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
 
         this.mStage = 1;
         InitGame();
+        AddAnimatedAvatar();
+
+    }
+
+    private void AddAnimatedAvatar() {
+        RelativeLayout rl = (RelativeLayout)findViewById(R.id.ll_topbar);
+
+        // Initialize gameView and set it as the view
+        gameView = new StaticAnimateGameView(this,R.drawable.bob,50,100,5);
+
+        rl.addView(gameView);
     }
 
     private void InitGame() {
