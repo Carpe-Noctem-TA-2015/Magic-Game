@@ -11,10 +11,6 @@
         android:textStyle="bold"
         android:textColor="#fff"
         android:layout_width="75dp"
-<<<<<<< HEAD
         android:layout_height="75dp" />
-=======
-        android:layout_height="75dp"/>
->>>>>>> 1cf7c3eb9f768ed0f5bdf57325bffb8805227639
 
 </LinearLayout>
