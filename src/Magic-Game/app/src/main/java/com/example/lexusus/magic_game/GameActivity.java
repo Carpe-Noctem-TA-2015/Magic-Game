@@ -3,6 +3,11 @@ package com.example.lexusus.magic_game;
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.gesture.Gesture;
+import android.gesture.GestureLibraries;
+import android.gesture.GestureLibrary;
+import android.gesture.GestureOverlayView;
+import android.gesture.Prediction;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
@@ -13,8 +18,9 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Locale;
+import java.util.Map;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener {
 
     private int mStage;
     private int firstOpenId = -1;
@@ -26,6 +32,8 @@ public class GameActivity extends AppCompatActivity {
     private Tiles[] tiles;
     private int[] power;
     private int pairsLeft;
+    private GestureLibrary gLibrary;
+
 
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
@@ -267,6 +275,12 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void InitStageThree() {
+
+        gLibrary = GestureLibraries.fromRawResource(this,
+                R.raw.gestures);
+        if (!gLibrary.load()) {
+            finish();
+        }
     }
 
     private void InitStageOne() {
@@ -284,5 +298,22 @@ public class GameActivity extends AppCompatActivity {
 
     public void Listen(View view) {
         this.promptSpeechInput();
+    }
+
+    @Override
+    public void onGesturePerformed(GestureOverlayView overlay, Gesture gesture) {
+        ArrayList<Prediction> predictions =
+                gLibrary.recognize(gesture);
+
+        if (predictions.size() > 0 && predictions.get(0).score > 1.0) {
+
+            String action = predictions.get(0).name;
+
+            Map<String,String> spellSymbols = Constants.init();
+
+            if(spellSymbols.containsValue(action)){
+                this.ChangeStage();
+            }
+        }
     }
 }

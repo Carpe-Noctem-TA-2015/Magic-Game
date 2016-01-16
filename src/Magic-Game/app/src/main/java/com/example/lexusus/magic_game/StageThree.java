@@ -2,6 +2,7 @@ package com.example.lexusus.magic_game;
 
 
 import android.app.Fragment;
+import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +24,14 @@ public class StageThree extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stage_three, container, false);
+        View view = inflater.inflate(R.layout.fragment_stage_three, container, false);
+
+        GestureOverlayView gOverlay = (GestureOverlayView)
+                view.findViewById(R.id.gOverlay);
+
+        gOverlay.addOnGesturePerformedListener((GameActivity)getActivity());
+
+        return view;
     }
 
 }
