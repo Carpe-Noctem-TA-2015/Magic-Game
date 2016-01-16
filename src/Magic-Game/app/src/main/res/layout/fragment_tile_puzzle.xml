@@ -1,7 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical"
     tools:context="com.example.lexusus.magic_game.TilePuzzleFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -84,42 +86,6 @@
         xmlns:android="http://schemas.android.com/apk/res/android">
 
         <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/container_12"
-            android:tag="12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Flip">
-        </FrameLayout>
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/container_13"
-            android:tag="13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Flip">
-        </FrameLayout>
-
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/container_14"
-            android:tag="14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Flip">
-        </FrameLayout>
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/container_15"
-            android:tag="15"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="Flip">
-        </FrameLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_height="wrap_content"
-        android:layout_width="match_parent"
-        android:orientation="horizontal"
-        xmlns:android="http://schemas.android.com/apk/res/android">
-
-        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/container_8"
             android:tag="8"
             android:layout_width="wrap_content"
@@ -149,6 +115,43 @@
             android:onClick="Flip">
         </FrameLayout>
     </LinearLayout>
+    <LinearLayout
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/container_12"
+            android:tag="12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Flip">
+        </FrameLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/container_13"
+            android:tag="13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Flip">
+        </FrameLayout>
+
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/container_14"
+            android:tag="14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Flip">
+        </FrameLayout>
+        <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/container_15"
+            android:tag="15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="Flip">
+        </FrameLayout>
+    </LinearLayout>
 
 
-</FrameLayout>
+
+</LinearLayout>

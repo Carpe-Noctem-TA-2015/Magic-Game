@@ -65,7 +65,6 @@ public class TilePuzzleFragment extends Fragment {
                 .add(R.id.container_14, new TileFrontFragment())
                 .add(R.id.container_15, new TileFrontFragment())
                 .commit();
-
     }
 
 
@@ -79,7 +78,7 @@ public class TilePuzzleFragment extends Fragment {
         FlipSpecificTitle(tag, id);
         //flipCard();
     }
-    public void FlipSpecificTitle(String tag, int id){
+    private void FlipSpecificTitle(String tag, int id){
 
         int tagValue = Integer.parseInt(tag);
         boolean closeAfterOpening = false;
@@ -172,45 +171,11 @@ public class TilePuzzleFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_tile_puzzle, container, false);
     }
 
-    public class TileFrontFragment extends Fragment {
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            return inflater.inflate(R.layout.front, container, false);
-        }
-    }
 
     /**
      * A fragment representing the air of the card.
      */
-    public class TileBackFragment extends Fragment {
-        private Tiles tile;
 
-        public TileBackFragment(Tiles tile)
-        {
-            this.tile = tile;
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-
-            int layout;
-
-            switch (tile){
-                case FIRE:
-                    layout = R.layout.fire;
-                    break;
-                case AIR:
-                    layout = R.layout.air;
-                    break;
-                default:
-                    layout = R.layout.air;
-                    break;
-            }
-            return inflater.inflate(layout, container, false);
-        }
-    }
 
 }
