@@ -210,7 +210,7 @@ public class GameActivity extends AppCompatActivity {
     //Navigation Between Stages
     private void ChangeStage(){
         this.mStage += 1;
-        if(mStage>3){
+        if(mStage>4){
             this.mStage = 1;
         }
 
@@ -223,6 +223,9 @@ public class GameActivity extends AppCompatActivity {
                 break;
             case 3:
                 SwitchGameFragment(3);
+                break;
+            case 4:
+                SwitchGameFragment(4);
                 break;
         }
     }
@@ -249,9 +252,19 @@ public class GameActivity extends AppCompatActivity {
                     .commit();
             InitStageThree();
         }
+        if(i==4) {
+            getFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fl_game_area, new StageFour())
+                    .commit();
+            InitStageFour();
+        }
     }
 
     // Register
+
+    private void InitStageFour() {
+    }
 
     private void InitStageThree() {
     }
