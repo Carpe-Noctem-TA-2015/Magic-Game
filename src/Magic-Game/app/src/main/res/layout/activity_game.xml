@@ -19,6 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_gravity="center"
+        android:onClick="Test"
         android:background="@android:color/holo_blue_bright">
         <FrameLayout
             android:layout_width="match_parent"

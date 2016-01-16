@@ -9,4 +9,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tap_on_mic">tap</string>
+    <string name="speech_not_supported">no support</string>
+    <string name="speech_prompt">cast</string>
 </resources>
