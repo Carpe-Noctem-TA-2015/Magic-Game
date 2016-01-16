@@ -25,7 +25,10 @@ public class MainMenuActivity extends AppCompatActivity {
         Log.d("my app", "ranking");
     }
     public void onClickProfile(View view){
-        Log.d("my app", "profile");
+        getFragmentManager()
+                .beginTransaction()
+                .add(R.id.menu_container, new ProfileFragment())
+                .commit();
     }
     public void onClickGameRules(View view){
         Log.d("my app", "game rules");
