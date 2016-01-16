@@ -49,6 +49,23 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Tell the gameView resume method to execute
+        gameView.resume();
+    }
+
+    // This method executes when the player quits the game
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // Tell the gameView pause method to execute
+        gameView.pause();
+    }
+
     private void AddAnimatedAvatar() {
         RelativeLayout rl = (RelativeLayout)findViewById(R.id.ll_topbar);
 
