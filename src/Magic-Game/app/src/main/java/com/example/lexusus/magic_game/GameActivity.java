@@ -2,15 +2,21 @@ package com.example.lexusus.magic_game;
 
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
 import android.gesture.Gesture;
 import android.gesture.GestureLibraries;
 import android.gesture.GestureLibrary;
 import android.gesture.GestureOverlayView;
 import android.gesture.Prediction;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +27,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
-public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener {
+public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener, SensorEventListener {
 
     private int mStage;
     private int firstOpenId = -1;
@@ -35,6 +41,9 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     private int pairsLeft;
     private GestureLibrary gLibrary;
     private StaticAnimateGameView gameView;
+    private SensorManager senSensorManager;
+    private Sensor senAccelerometer;
+    private Context mContext;
 
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
@@ -46,6 +55,9 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
         this.mStage = 1;
         InitGame();
         AddAnimatedAvatar();
+        senSensorManager = (SensorManager) getSystemService(mContext.SENSOR_SERVICE);
+        senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+        senSensorManager.registerListener(this, senAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
 
     }
 
@@ -344,5 +356,15 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
                 this.ChangeStage();
             }
         }
+    }
+
+    @Override
+    public void onSensorChanged(SensorEvent event) {
+
+    }
+
+    @Override
+    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
     }
 }
