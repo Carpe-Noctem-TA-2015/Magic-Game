@@ -46,6 +46,9 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     private SensorManager senSensorManager;
     private Sensor senAccelerometer;
     private Context mContext;
+    private long lastUpdate = 0;
+    private float last_x, last_y, last_z;
+    private static final int SHAKE_THRESHOLD = 600;
 
     private final int REQ_CODE_SPEECH_INPUT = 100;
 
@@ -67,6 +70,8 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     protected void onResume() {
         super.onResume();
 
+        senSensorManager.registerListener(this, senAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
+
         // Tell the gameView resume method to execute
         gameView.resume();
     }
@@ -75,6 +80,8 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     @Override
     protected void onPause() {
         super.onPause();
+
+        senSensorManager.unregisterListener(this);
 
         // Tell the gameView pause method to execute
         gameView.pause();
@@ -361,8 +368,33 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
+    public void onSensorChanged(SensorEvent sensorEvent) {
+        //TODO: check for the stage
 
+        Sensor mySensor = sensorEvent.sensor;
+
+        if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+            float x = sensorEvent.values[0];
+            float y = sensorEvent.values[1];
+            float z = sensorEvent.values[2];
+
+            long curTime = System.currentTimeMillis();
+
+            if ((curTime - lastUpdate) > 100) {
+                long diffTime = (curTime - lastUpdate);
+                lastUpdate = curTime;
+
+                float speed = Math.abs(x + y + z - last_x - last_y - last_z)/ diffTime * 10000;
+
+                if (speed > SHAKE_THRESHOLD) {
+                    //TODO: Our code here
+                }
+
+                last_x = x;
+                last_y = y;
+                last_z = z;
+            }
+        }
     }
 
     @Override
