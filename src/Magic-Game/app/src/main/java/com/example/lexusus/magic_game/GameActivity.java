@@ -70,7 +70,7 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
         RelativeLayout rl = (RelativeLayout)findViewById(R.id.ll_topbar);
 
         // Initialize gameView and set it as the view
-        gameView = new StaticAnimateGameView(this,R.drawable.bob,50,100,5);
+        gameView = new StaticAnimateGameView(this,R.drawable.cute,82,118,8);
 
         rl.addView(gameView);
     }
