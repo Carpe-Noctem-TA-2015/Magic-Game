@@ -16,7 +16,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -24,13 +23,17 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.lexusus.magic.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.plus.Plus;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
-public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener, SensorEventListener {
-
+public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener,
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, SensorEventListener {
     private int mStage;
     private int firstOpenId = -1;
     private int firstOpenTag = -1;
@@ -51,11 +54,20 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     private static final int SHAKE_THRESHOLD = 600;
 
     private final int REQ_CODE_SPEECH_INPUT = 100;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
+                .build();
+
 
         this.mStage = 1;
         InitGame();
@@ -391,6 +403,21 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
+
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
 
     }
 }
