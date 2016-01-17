@@ -18,12 +18,17 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.lexusus.magic.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.plus.Plus;
 
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Map;
 
-public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener {
+public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener,
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     private int mStage;
     private int firstOpenId = -1;
@@ -39,11 +44,20 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     private StaticAnimateGameView gameView;
 
     private final int REQ_CODE_SPEECH_INPUT = 100;
+    private GoogleApiClient mGoogleApiClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .addApi(Plus.API).addScope(Plus.SCOPE_PLUS_LOGIN)
+                .addApi(Games.API).addScope(Games.SCOPE_GAMES)
+                .build();
+
 
         this.mStage = 1;
         InitGame();
@@ -346,5 +360,20 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
                 this.ChangeStage();
             }
         }
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
     }
 }
