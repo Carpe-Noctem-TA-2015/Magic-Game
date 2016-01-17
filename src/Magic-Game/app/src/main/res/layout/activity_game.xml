@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
-    tools:context="com.example.lexusus.magic_game.GameActivity">
+    tools:context="noctem.lexusus.magic.GameActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"

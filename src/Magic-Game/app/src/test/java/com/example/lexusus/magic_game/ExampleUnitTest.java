@@ -1,4 +1,4 @@
-package com.example.lexusus.magic_game;
+package com.example.lexusus.magic;
 
 import org.junit.Test;
 

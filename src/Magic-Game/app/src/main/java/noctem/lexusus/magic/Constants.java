@@ -1,4 +1,4 @@
-package com.example.lexusus.magic_game;
+package noctem.lexusus.magic;
 
 import java.util.Arrays;
 import java.util.HashMap;
