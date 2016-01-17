@@ -179,7 +179,6 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
         int index = tagValue;
         boolean currentCardIsFacedUp = isFlipped[index];
 
-
         Fragment fragmentToBeUsed;
 
         if(!currentCardIsFacedUp){
@@ -192,13 +191,10 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
 
         isFlipped[index] = !isFlipped[index];
 
-
-
         if(!closeAfterOpening)
         {
             return;
         }
-
 
         this.lockGame = true;
         Handler handler = new Handler();
@@ -247,10 +243,6 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
                 }
             }
         }, 500);
-
-
-
-
     }
     private void FlipAnimation(int id, Fragment fragmentToBeUsed) {
         getFragmentManager()
