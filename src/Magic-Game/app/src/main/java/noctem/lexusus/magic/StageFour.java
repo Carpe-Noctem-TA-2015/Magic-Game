@@ -1,4 +1,4 @@
-package com.example.lexusus.magic_game;
+package noctem.lexusus.magic;
 
 
 import android.app.Fragment;
@@ -7,14 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lexusus.magic.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StageTwo extends Fragment {
+public class StageFour extends Fragment {
 
 
-    public StageTwo() {
+    public StageFour() {
         // Required empty public constructor
     }
 
@@ -23,7 +25,7 @@ public class StageTwo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stage_two, container, false);
+        return inflater.inflate(R.layout.fragment_stage_four, container, false);
     }
 
 }

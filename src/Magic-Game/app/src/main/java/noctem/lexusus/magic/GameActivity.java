@@ -1,4 +1,4 @@
-package com.example.lexusus.magic_game;
+package noctem.lexusus.magic;
 
 import android.app.Fragment;
 import android.content.ActivityNotFoundException;
@@ -22,6 +22,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+
+import com.example.lexusus.magic.R;
 
 import java.util.ArrayList;
 import java.util.Locale;

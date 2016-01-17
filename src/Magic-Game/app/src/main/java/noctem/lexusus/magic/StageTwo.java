@@ -1,21 +1,22 @@
-package com.example.lexusus.magic_game;
+package noctem.lexusus.magic;
 
 
 import android.app.Fragment;
-import android.gesture.GestureOverlayView;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.lexusus.magic.R;
+
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class StageThree extends Fragment {
+public class StageTwo extends Fragment {
 
 
-    public StageThree() {
+    public StageTwo() {
         // Required empty public constructor
     }
 
@@ -24,14 +25,7 @@ public class StageThree extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_stage_three, container, false);
-
-        GestureOverlayView gOverlay = (GestureOverlayView)
-                view.findViewById(R.id.gOverlay);
-
-        gOverlay.addOnGesturePerformedListener((GameActivity)getActivity());
-
-        return view;
+        return inflater.inflate(R.layout.fragment_stage_two, container, false);
     }
 
 }
