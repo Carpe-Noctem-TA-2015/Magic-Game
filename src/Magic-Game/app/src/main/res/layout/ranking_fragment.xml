@@ -15,24 +15,24 @@
             android:alignmentMode="alignBounds"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/images_size"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:orientation="horizontal">
-
-                <RelativeLayout
-                    android:layout_gravity="top"
-                    android:contentDescription="Player Image"
-                    android:paddingRight="@dimen/fab_margin"
-                    android:layout_width="@dimen/images_size"
-                    android:layout_height="@dimen/images_size"
-                    android:background="@android:color/holo_green_dark"
-                    android:id="@+id/rl_avatar"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Player"
+                    android:textSize="@dimen/tv_text_size"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="PlayerName - connect it with the real name"
+                    android:layout_weight="2"
+                    android:text="Score"
                     android:textSize="@dimen/tv_text_size"/>
             </LinearLayout>
 
@@ -45,17 +45,18 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Ranking"
+                    android:text="PewDiePie"
                     android:textSize="@dimen/tv_text_size"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="2"
-                    android:text="Score"
+                    android:text="over 9000"
                     android:textSize="@dimen/tv_text_size"/>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
+
 </LinearLayout>
