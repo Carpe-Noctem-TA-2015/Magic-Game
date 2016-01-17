@@ -16,7 +16,6 @@ import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.speech.RecognizerIntent;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -34,9 +33,7 @@ import java.util.Locale;
 import java.util.Map;
 
 public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener,
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-public class GameActivity extends AppCompatActivity implements GestureOverlayView.OnGesturePerformedListener, SensorEventListener {
-
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, SensorEventListener {
     private int mStage;
     private int firstOpenId = -1;
     private int firstOpenTag = -1;
@@ -416,7 +413,6 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
-}
 
     @Override
     public void onConnected(Bundle bundle) {
