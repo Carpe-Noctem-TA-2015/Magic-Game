@@ -19,6 +19,7 @@ import android.speech.RecognizerIntent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     private int secondOpenTag = -1;
     private boolean lockGame = false;
     private boolean[] isFlipped;
+    private boolean isShakeable = false;
     private Tiles[] tiles;
     private int[] power;
     private int pairsLeft;
@@ -100,10 +102,10 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     }
 
     private void AddAnimatedAvatar() {
-        RelativeLayout rl = (RelativeLayout)findViewById(R.id.ll_topbar);
+        LinearLayout rl = (LinearLayout)findViewById(R.id.ll_topbar);
 
         // Initialize gameView and set it as the view
-        gameView = new StaticAnimateGameView(this,R.drawable.cute,82,118,8);
+        gameView = new StaticAnimateGameView(this,R.drawable.cute,82, 118, 8);
 
         rl.addView(gameView);
     }
@@ -326,6 +328,7 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
     // Register
 
     private void InitStageFour() {
+        isShakeable = true;
     }
 
     private void InitStageThree() {
@@ -343,6 +346,7 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
         TilePuzzeManager puzzle = new TilePuzzeManager(4);
         this.isFlipped = puzzle.getFlipped();
         this.tiles = puzzle.getTiles();
+        isShakeable = false;
 
     }
 
@@ -373,30 +377,30 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent) {
-        //TODO: check for the stage
+        if(isShakeable) {
+            Sensor mySensor = sensorEvent.sensor;
 
-        Sensor mySensor = sensorEvent.sensor;
+            if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
+                float x = sensorEvent.values[0];
+                float y = sensorEvent.values[1];
+                float z = sensorEvent.values[2];
 
-        if (mySensor.getType() == Sensor.TYPE_ACCELEROMETER) {
-            float x = sensorEvent.values[0];
-            float y = sensorEvent.values[1];
-            float z = sensorEvent.values[2];
+                long curTime = System.currentTimeMillis();
 
-            long curTime = System.currentTimeMillis();
+                if ((curTime - lastUpdate) > 100) {
+                    long diffTime = (curTime - lastUpdate);
+                    lastUpdate = curTime;
 
-            if ((curTime - lastUpdate) > 100) {
-                long diffTime = (curTime - lastUpdate);
-                lastUpdate = curTime;
+                    float speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
-                float speed = Math.abs(x + y + z - last_x - last_y - last_z)/ diffTime * 10000;
+                    if (speed > SHAKE_THRESHOLD) {
+                        ChangeStage(); // moves to the next stage
+                    }
 
-                if (speed > SHAKE_THRESHOLD) {
-                    //TODO: Our code here
+                    last_x = x;
+                    last_y = y;
+                    last_z = z;
                 }
-
-                last_x = x;
-                last_y = y;
-                last_z = z;
             }
         }
     }

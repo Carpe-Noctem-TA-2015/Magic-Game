@@ -41,7 +41,7 @@ public class StaticAnimateGameView extends SurfaceView implements Runnable {
     private int currentFrame;
 
     private long lastFrameChangeTime = 0;
-    private int frameLengthInMilliseconds = 100;
+    private int frameLengthInMilliseconds = 200;
 
     private Rect frameToDraw;
     private RectF whereToDraw;
@@ -58,7 +58,8 @@ public class StaticAnimateGameView extends SurfaceView implements Runnable {
         this.frameCount = frameCount;
         this.currentFrame = 0;
 
-        this.setLayoutParams(new LinearLayout.LayoutParams(frameWidth,frameHeight));
+        this.setLayoutParams(new LinearLayout.LayoutParams(frameWidth * 2, frameHeight * 2));
+        //this.getHolder().setFixedSize(300, 300);
         initDrawingArea();
 
         //set resource
@@ -135,15 +136,16 @@ public class StaticAnimateGameView extends SurfaceView implements Runnable {
             canvas = ourHolder.lockCanvas();
 
             // Draw the background color, to delete past frames
-            canvas.drawColor(Color.argb(255, 26, 128, 182));
+            canvas.drawColor(Color.rgb(178, 178, 76));
 
-            whereToDraw.set((int)startingPoitionOfCut,
+            whereToDraw.set((int) startingPoitionOfCut,
                     0,
-                    (int)startingPoitionOfCut + frameWidth,
+                    (int) startingPoitionOfCut + frameWidth,
                     frameHeight);
 
             getCurrentFrame();
 
+            canvas.scale(2, 2, 2, 2);
             canvas.drawBitmap(animatedImage,
                     frameToDraw,
                     whereToDraw, paint);

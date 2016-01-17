@@ -22,11 +22,12 @@
 
                 <RelativeLayout
                     android:layout_gravity="top"
+                    android:gravity="center"
                     android:contentDescription="Player Image"
                     android:paddingRight="@dimen/fab_margin"
                     android:layout_width="@dimen/images_size"
                     android:layout_height="@dimen/images_size"
-                    android:background="@android:color/holo_green_dark"
+                    android:background="@android:color/transparent"
                     android:id="@+id/rl_avatar"/>
 
                 <TextView

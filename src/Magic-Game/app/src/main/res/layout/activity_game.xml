@@ -7,29 +7,24 @@
     android:layout_gravity="center"
     tools:context="noctem.lexusus.magic.GameActivity">
 
-    <RelativeLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="75dp"
         android:background="@android:color/holo_green_dark"
         android:id="@+id/ll_topbar">
 
-    </RelativeLayout>
+    </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_weight="1"
         android:layout_gravity="center"
         android:onClick="Test"
+        android:id="@+id/fl_game_area"
         android:background="@android:color/holo_blue_bright">
-        <FrameLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/fl_game_area">
-
-        </FrameLayout>
-
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

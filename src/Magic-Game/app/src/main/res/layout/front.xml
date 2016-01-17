@@ -2,15 +2,13 @@
     android:layout_width="75dp"
     android:layout_height="75dp"
     android:orientation="vertical"
-    android:background="#a6c"
-    android:padding="16dp"
-    android:gravity="bottom">
+    android:gravity="center">
 
-    <TextView android:id="@android:id/text1"
-        style="?android:textAppearanceMedium"
-        android:textStyle="bold"
-        android:textColor="#fff"
+    <ImageView
         android:layout_width="75dp"
-        android:layout_height="75dp" />
-
+        android:layout_height="75dp"
+        android:adjustViewBounds="true"
+        android:id="@+id/image"
+        android:src="@drawable/card_flip_back"
+        />
 </LinearLayout>
