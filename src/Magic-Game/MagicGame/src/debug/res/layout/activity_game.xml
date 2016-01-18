@@ -33,7 +33,7 @@
                 android:id="@+id/tv_fire_power"
                 android:textSize="@dimen/tv_text_size"
                 android:textColor="@android:color/white"
-                android:text="0"/>
+                android:text="1"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -54,7 +54,7 @@
                 android:id="@+id/tv_earth_power"
                 android:textSize="@dimen/tv_text_size"
                 android:textColor="@android:color/white"
-                android:text="0"/>
+                android:text="1"/>
         </RelativeLayout>
 
         <RelativeLayout
@@ -75,7 +75,7 @@
                 android:id="@+id/tv_air_power"
                 android:textSize="@dimen/tv_text_size"
                 android:textColor="@android:color/white"
-                android:text="0"/>
+                android:text="1"/>
         </RelativeLayout>
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -95,7 +95,7 @@
                 android:id="@+id/tv_water_power"
                 android:textSize="@dimen/tv_text_size"
                 android:textColor="@android:color/white"
-                android:text="0"/>
+                android:text="1"/>
         </RelativeLayout>
 
     </LinearLayout>
