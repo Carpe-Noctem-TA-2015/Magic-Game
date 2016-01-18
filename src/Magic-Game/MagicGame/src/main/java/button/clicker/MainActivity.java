@@ -36,15 +36,14 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
-import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.GamesActivityResultCodes;
+import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.multiplayer.Invitation;
 import com.google.android.gms.games.multiplayer.Multiplayer;
 import com.google.android.gms.games.multiplayer.OnInvitationReceivedListener;
@@ -56,7 +55,6 @@ import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
 import com.google.android.gms.games.multiplayer.realtime.RoomStatusUpdateListener;
 import com.google.android.gms.games.multiplayer.realtime.RoomUpdateListener;
 import com.google.android.gms.plus.Plus;
-
 import com.google.example.games.basegameutils.BaseGameUtils;
 
 import java.util.ArrayList;
@@ -125,6 +123,9 @@ public class MainActivity extends Activity
     final static int RC_INVITATION_INBOX = 10001;
     final static int RC_WAITING_ROOM = 10002;
 
+    TextView firePower, waterPower, airPower, earthPower;
+    TextView myHealth, theriHealth;
+
   // Request code used to invoke sign in user interactions.
   private static final int RC_SIGN_IN = 9001;
 
@@ -179,7 +180,8 @@ public class MainActivity extends Activity
         senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         senSensorManager.registerListener(this, senAccelerometer , SensorManager.SENSOR_DELAY_NORMAL);
 
-    // set up a click listener for everything we care about
+
+        // set up a click listener for everything we care about
     for (int id : CLICKABLES) {
       findViewById(id).setOnClickListener(this);
     }
@@ -711,6 +713,11 @@ public class MainActivity extends Activity
     // Start the gameplay phase of the game.
     void startGame(boolean multiplayer) {
         setContentView(R.layout.activity_game);
+
+        firePower = (TextView) findViewById(R.id.tv_fire_power);
+        waterPower = (TextView) findViewById(R.id.tv_water_power);
+        earthPower = (TextView) findViewById(R.id.tv_earth_power);
+        airPower = (TextView) findViewById(R.id.tv_air_power);
         this.mStage = 1;
         InitGame();
         AddAnimatedAvatar();
@@ -1070,17 +1077,22 @@ public class MainActivity extends Activity
                         case FIRE:
                             power[0] += 1;
                             break;
-                        case WATER:
+                        case Earth:
                             power[1] += 1;
                             break;
                         case AIR:
                             power[2] += 1;
                             break;
-                        case Earth:
+                        case WATER:
                             power[3] += 1;
                             break;
                     }
                     pairsLeft--;
+
+                    firePower.setText(String.valueOf(power[0]));
+                    earthPower.setText(String.valueOf(power[1]));
+                    airPower.setText(String.valueOf(power[2]));
+                    waterPower.setText(String.valueOf(power[3]));//feaw
                 }
 
                 isFlipped[firstOpenTag] = !isFlipped[firstOpenTag];
