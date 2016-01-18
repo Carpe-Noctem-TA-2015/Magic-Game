@@ -107,7 +107,9 @@ public class GameActivity extends AppCompatActivity implements GestureOverlayVie
         // Initialize gameView and set it as the view
         gameView = new StaticAnimateGameView(this,R.drawable.cute,82, 118, 8);
 
-        rl.addView(gameView);
+        rl.addView(gameView,0);
+       /* View view = getLayoutInflater().inflate(R.layout.forces_thumbnail_cv, null);
+        rl.addView(view);*/
     }
 
     private void InitGame() {

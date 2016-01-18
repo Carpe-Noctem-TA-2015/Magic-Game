@@ -24,7 +24,7 @@
                     android:layout_gravity="top"
                     android:gravity="center"
                     android:contentDescription="Player Image"
-                    android:paddingRight="@dimen/fab_margin"
+                    android:paddingEnd="@dimen/fab_margin"
                     android:layout_width="@dimen/images_size"
                     android:layout_height="@dimen/images_size"
                     android:background="@android:color/transparent"
