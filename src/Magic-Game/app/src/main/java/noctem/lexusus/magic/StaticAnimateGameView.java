@@ -59,7 +59,6 @@ public class StaticAnimateGameView extends SurfaceView implements Runnable {
         this.currentFrame = 0;
 
         this.setLayoutParams(new LinearLayout.LayoutParams(frameWidth * 2, frameHeight * 2));
-        //this.getHolder().setFixedSize(300, 300);
         initDrawingArea();
 
         //set resource

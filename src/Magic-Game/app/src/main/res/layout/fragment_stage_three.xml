@@ -1,14 +1,21 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="noctem.lexusus.magic.StageThree">
 
     <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/pentagram"/>
 
     <android.gesture.GestureOverlayView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gestureColor="@android:color/holo_red_dark"
+        android:gestureStrokeWidth="20"
+        android:uncertainGestureColor="@android:color/holo_red_dark"
         android:id="@+id/gOverlay"/>
 
-</LinearLayout>
+</RelativeLayout>

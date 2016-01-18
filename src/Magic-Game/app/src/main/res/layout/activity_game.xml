@@ -5,20 +5,22 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
+    android:background="@drawable/small_bg"
     tools:context="noctem.lexusus.magic.GameActivity">
 
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@android:color/holo_green_dark"
+        android:padding="@dimen/small_margin"
         android:id="@+id/ll_topbar">
 
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/fab_margin">
+            android:padding="@dimen/small_margin">
             <ImageView
+                android:contentDescription="Fire"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:adjustViewBounds="true"
@@ -29,8 +31,73 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:id="@+id/tv_fire_power"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
                 android:text="1"/>
         </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_margin">
+            <ImageView
+                android:contentDescription="Earth"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/earth"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_earth_power"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="1"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_margin">
+            <ImageView
+                android:contentDescription="Air"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/air"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_air_power"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="1"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/small_margin">
+            <ImageView
+                android:contentDescription="Water"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:adjustViewBounds="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/water"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/tv_water_power"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="1"/>
+        </RelativeLayout>
+
     </LinearLayout>
 
     <RelativeLayout
@@ -40,13 +107,51 @@
         android:layout_gravity="center"
         android:onClick="Test"
         android:id="@+id/fl_game_area"
-        android:background="@android:color/holo_blue_bright">
+        android:background="@android:color/transparent">
     </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="75dp"
-        android:background="@android:color/holo_red_dark">
+        android:orientation="vertical"
+        android:background="@android:color/transparent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="My Health"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="100"
+                android:id="@+id/tv_my_health"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="Their Health"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/tv_text_size"
+                android:textColor="@android:color/white"
+                android:text="100"
+                android:id="@+id/tv_their_health"/>
+        </LinearLayout>
 
     </LinearLayout>
 
