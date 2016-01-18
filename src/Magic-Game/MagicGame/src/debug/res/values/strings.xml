@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Magic-Game</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_find_opponent">Find Opponent</string>
+    <string name="button_profile">Profile</string>
+    <string name="button_ranking">Ranking</string>
+    <string name="button_game_rules">Game Rules</string>
+
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tap_on_mic">tap</string>
+    <string name="speech_not_supported">no support</string>
+    <string name="speech_prompt">cast</string>
+</resources>
